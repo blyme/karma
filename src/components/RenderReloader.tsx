@@ -3,6 +3,7 @@ import { Reloader } from "../types";
 import ListItem from "./ListItem";
 import Logo from "./Logo";
 import { useEffect, useState } from "react";
+import Confetti from "react-confetti";
 
 const containerVariants = {
   hidden: {
@@ -120,6 +121,11 @@ function RenderReloader({
               ))}
             </ListItem>
           </div>
+          <Confetti
+            numberOfPieces={130}
+            recycle={false}
+            colors={["#D28BC7", "#FFE14C", "#FFC526", "#FE810B"]}
+          />
         </motion.div>
       )}
     </AnimatePresence>
