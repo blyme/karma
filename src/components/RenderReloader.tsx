@@ -4,6 +4,7 @@ import ListItem from "./ListItem";
 import Logo from "./Logo";
 import { useEffect, useState } from "react";
 import Confetti from "react-confetti";
+import { useMediaQuery } from "../hooks/use-media-query";
 
 const containerVariants = {
   hidden: {
@@ -34,6 +35,8 @@ function RenderReloader({
     setShowLogo(true);
   }, [currentIndex]);
 
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+
   return (
     <AnimatePresence mode="popLayout" key={reloader.user_id}>
       {showLogo ? (
@@ -57,10 +60,10 @@ function RenderReloader({
           initial="hidden"
           animate="visible"
           exit="exit"
-          className="grid grid-cols-2 mx-auto h-full max-w-7xl place-content-center"
+          className="grid lg:grid-cols-2 mx-auto h-full max-w-7xl place-content-center"
         >
           <div>
-            <div className="flex items-center justify-between max-w-[800px]">
+            <div className="flex flex-col md:flex-row md:items-center justify-between max-w-[800px]">
               <motion.h2
                 initial={{ y: 100 }}
                 animate={{ y: 0 }}
@@ -91,8 +94,8 @@ function RenderReloader({
             />
 
             <motion.p
-              className="text-8xl whitespace-nowrap"
-              initial={{ opacity: 1, y: -500 }}
+              className="text-2xl lg:text-8xl whitespace-nowrap"
+              initial={{ opacity: 1, y: isDesktop ? -500 : -250 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: DELAY }}
             >
@@ -100,12 +103,12 @@ function RenderReloader({
             </motion.p>
           </div>
 
-          <div className="flex flex-col space-y-12 mt-24 mx-20">
+          <div className="flex flex-col space-y-6 md:space-y-12 md:mt-24 md:mx-20">
             <motion.h3
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: DELAY }}
-              className="text-2xl font-bold"
+              className="text-2xl font-bold mt-4 md:mt-0"
             >
               Hvad kollegerne siger 👏
             </motion.h3>
