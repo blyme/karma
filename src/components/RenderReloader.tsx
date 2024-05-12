@@ -57,7 +57,7 @@ function RenderReloader({
           initial="hidden"
           animate="visible"
           exit="exit"
-          className="grid grid-cols-2 mx-auto max-w-7xl place-content-center"
+          className="grid grid-cols-2 mx-auto h-full max-w-7xl place-content-center"
         >
           <div>
             <div className="flex items-center justify-between max-w-[800px]">
