@@ -9,7 +9,7 @@ function ListItem({ children }: { children: React.ReactNode }) {
     animate(
       "li",
       { opacity: 1, x: 0 },
-      { delay: stagger(0.2, { startDelay: 4.5 }) }
+      { delay: stagger(0.4, { startDelay: 4.5 }) }
     );
   });
 

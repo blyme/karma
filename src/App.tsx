@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import useGetKarmaPeople from "./hooks/useGetKarmaPeople";
 import { useEffect, useState } from "react";
-import RenderReloader from "./components/RenderReloader";
 import Logo from "./components/Logo";
+import RenderReloader2 from "./components/RenderReloader";
 
 function App() {
   const { data: reloaders, isLoading } = useGetKarmaPeople();
@@ -10,6 +10,9 @@ function App() {
   useEffect(() => {
     if (!isLoading && reloaders) {
       const interval = setInterval(() => {
+        // We use the modulus operator (%) to wrap the index around to 0 if
+        // it exceeds the length of reloaders.
+        // This creates a circular or looping effect.
         setCurrentIndex((prev) => (prev + 1) % reloaders.length);
       }, 15000);
       return () => clearInterval(interval);
@@ -35,9 +38,9 @@ function App() {
 
   return (
     <>
-      <main className="bg-beige h-screen w-full p-4 lg:p-24 mt-auto">
+      <main className="bg-beige overflow-hidden min-h-screen w-full p-4 lg:p-24 mt-auto">
         {reloaders ? (
-          <RenderReloader
+          <RenderReloader2
             reloader={reloaders[currentIndex]}
             currentIndex={currentIndex}
           />
