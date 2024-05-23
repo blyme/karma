@@ -232,6 +232,7 @@ function RenderReloader({
         width={width}
         height={height}
         recycle={false}
+        numberOfPieces={500}
         colors={["#D28BC7", "#FFE14C", "#FFC526", "#FE810B"]}
       />
     </div>

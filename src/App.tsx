@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import useGetKarmaPeople from "./hooks/useGetKarmaPeople";
 import { useEffect, useState } from "react";
-import Logo from "./components/Logo";
 import RenderReloader2 from "./components/RenderReloader";
 
 function App() {
@@ -23,14 +22,38 @@ function App() {
     return (
       <main className="bg-beige h-screen w-full grid place-items-center">
         <h1 className="text-4xl">
-          Ingen er nomineret til Reload ros i denne uge 😣
+          Ingen er nomineret til Reload ros i denne uge 😣 Kom igang!
         </h1>
         <motion.div
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1, rotate: 360 }}
-          transition={{ type: "spring", duration: "infinite" }}
+          initial={{ scale: 0 }}
+          animate={{ scale: [1, 0.7, 1, 0.7] }}
+          transition={{
+            repeat: Infinity,
+            repeatType: "mirror",
+            duration: 4,
+            times: [0, 0.2, 0.5, 0.8, 1],
+            delay: 1.5,
+          }}
         >
-          <Logo />
+          <div className="relative">
+            <motion.p
+              initial={{ opacity: 0, y: -1000, rotate: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.5,
+                duration: 0.5,
+                type: "spring",
+              }}
+              className="text-8xl absolute left-1/2 -translate-x-1/2 -top-9"
+            >
+              👑
+            </motion.p>
+            <img
+              alt="Rasmus fik mig til det..."
+              src="https://www.gravatar.com/avatar/462dad0dd24c568a32dcdb0ae895ae1b?s=500"
+              className="rounded-full object-cover"
+            />
+          </div>
         </motion.div>
       </main>
     );
