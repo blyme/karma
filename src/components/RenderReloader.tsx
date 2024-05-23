@@ -58,7 +58,7 @@ function RenderReloader({
         animate(
           "[data-framer-target='fullName']",
           {
-            y: -height / 2,
+            y: -480,
             opacity: 1,
           },
           { ...DEFAULT_ANIMATION_OPTIONS }
@@ -67,7 +67,7 @@ function RenderReloader({
         animate(
           "[data-framer-target='karmaKronede']",
           {
-            y: height / 4,
+            y: 280,
             opacity: 1,
           },
           { ...DEFAULT_ANIMATION_OPTIONS }
@@ -76,7 +76,7 @@ function RenderReloader({
         animate(
           "[data-framer-target='karmaWeek']",
           {
-            y: height / 4,
+            y: 280,
             x: -150,
             opacity: 0,
           },
@@ -121,6 +121,7 @@ function RenderReloader({
           },
           { delay: 1.5, ...DEFAULT_ANIMATION_OPTIONS }
         ),
+
         animate(
           "[data-framer-target='colleagues']",
           {
@@ -151,7 +152,7 @@ function RenderReloader({
     <div
       ref={scope}
       key={reloader.user_id}
-      className="h-full grid md:grid-cols-2"
+      className="grid md:grid-cols-2 place-content-center mx-auto max-w-screen-2xl h-full"
     >
       <div
         className="h-screen absolute grid place-items-center inset-0 z-10 bg-beige"
@@ -162,7 +163,7 @@ function RenderReloader({
         </motion.div>
       </div>
 
-      <div>
+      <div className="flex flex-col gap-2">
         <div className="flex items-center">
           <motion.h1
             initial={{
@@ -191,16 +192,16 @@ function RenderReloader({
           initial={{ scale: 3, opacity: 0 }}
         >
           <img
+            className="w-full max-h-[800px] object-cover"
             src={reloader.avatar_url}
             alt={`Billede af Reloader ${reloader.full_name}`}
-            className="mt-2"
           />
         </motion.div>
 
         <motion.h2
-          initial={{ y: 200, opacity: 0 }}
           data-framer-target="fullName"
-          className="text-2xl lg:text-[88px] mt-2 whitespace-nowrap"
+          initial={{ y: 0, opacity: 1 }}
+          className="text-2xl leading-none lg:text-[88px] whitespace-nowrap"
         >
           {reloader.full_name}
         </motion.h2>
@@ -214,14 +215,14 @@ function RenderReloader({
         >
           <Emoji>Hvad kollegerne siger :clap:</Emoji>
         </motion.h2>
-        <ul className="space-y-6 list-['\2192'] list-inside marker:text-yellow marker:mr-5">
+        <ul className="space-y-6 list-['\2192'] text-3xl list-inside marker:text-yellow marker:mr-5">
           {reloader.votes.map((vote, index) => (
             <motion.li
               data-framer-target="vote"
               key={`${index}-${vote}`}
               initial={{ x: 300, opacity: 0 }}
             >
-              <Emoji className="inline ml-2 text-3xl">{vote}</Emoji>
+              <Emoji className="inline ml-2">{vote}</Emoji>
             </motion.li>
           ))}
         </ul>

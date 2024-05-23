@@ -38,7 +38,7 @@ function App() {
 
   return (
     <>
-      <main className="bg-beige overflow-hidden min-h-screen w-full p-4 lg:p-24 mt-auto">
+      <main className="bg-beige p-24 h-screen">
         {reloaders ? (
           <RenderReloader2
             reloader={reloaders[currentIndex]}
