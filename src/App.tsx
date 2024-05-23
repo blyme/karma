@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import useGetKarmaPeople from "./hooks/useGetKarmaPeople";
 import { useEffect, useState } from "react";
-import RenderReloader2 from "./components/RenderReloader";
+import RenderReloader from "./components/RenderReloader";
 
 function App() {
   const { data: reloaders, isLoading } = useGetKarmaPeople();
@@ -63,7 +63,7 @@ function App() {
     <>
       <main className="bg-beige p-24 h-screen">
         {reloaders ? (
-          <RenderReloader2
+          <RenderReloader
             reloader={reloaders[currentIndex]}
             currentIndex={currentIndex}
           />
