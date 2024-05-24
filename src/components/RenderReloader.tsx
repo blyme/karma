@@ -4,7 +4,6 @@ import {
   motion,
   stagger,
 } from "framer-motion";
-import Emoji from "react-emoji-render";
 import type { Reloader } from "../types";
 import { useEffect } from "react";
 import Logo from "./Logo";
@@ -213,7 +212,7 @@ function RenderReloader({
           data-framer-target="colleagues"
           className="font-bold text-3xl"
         >
-          <Emoji>Hvad kollegerne siger :clap:</Emoji>
+          <h3>Hvad kollegerne siger</h3>
         </motion.h2>
         <ul className="space-y-6 list-['\2192'] text-3xl list-inside marker:text-yellow marker:mr-5">
           {reloader.votes.map((vote, index) => (
@@ -222,7 +221,7 @@ function RenderReloader({
               key={`${index}-${vote}`}
               initial={{ x: 300, opacity: 0 }}
             >
-              <Emoji className="inline ml-2">{vote}</Emoji>
+              <p className="inline ml-2">{vote}</p>
             </motion.li>
           ))}
         </ul>

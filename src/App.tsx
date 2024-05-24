@@ -22,7 +22,7 @@ function App() {
     return (
       <main className="bg-beige h-screen w-full grid place-items-center">
         <h1 className="text-4xl">
-          Ingen er nomineret til Reload ros i denne uge 😣 Kom igang!
+          Ingen er nomineret til Reload ros i denne uge. Kom igang!
         </h1>
         <motion.div
           initial={{ scale: 0 }}
