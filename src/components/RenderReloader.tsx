@@ -7,7 +7,6 @@ import {
 import type { Reloader } from "../types";
 import { useEffect } from "react";
 import Logo from "./Logo";
-import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
 
 function RenderReloader({
@@ -17,7 +16,7 @@ function RenderReloader({
   reloader: Reloader;
   currentIndex: number;
 }) {
-  const { width, height } = useWindowSize();
+  const { height } = useWindowSize();
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
@@ -227,13 +226,13 @@ function RenderReloader({
         </ul>
       </div>
 
-      <Confetti
+      {/*<Confetti
         width={width}
         height={height}
         recycle={false}
         numberOfPieces={500}
         colors={["#D28BC7", "#FFE14C", "#FFC526", "#FE810B"]}
-      />
+      />*/}
     </div>
   );
 }
