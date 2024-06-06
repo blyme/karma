@@ -211,7 +211,7 @@ function RenderReloader({
           data-framer-target="colleagues"
           className="font-bold text-3xl"
         >
-          <h3>Hvad kollegerne siger</h3>
+          Hvad kollegerne siger
         </motion.h2>
         <ul className="space-y-6 list-['\2192'] text-3xl list-inside marker:text-yellow marker:mr-5">
           {reloader.votes.map((vote, index) => (
