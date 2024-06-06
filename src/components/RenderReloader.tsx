@@ -201,7 +201,10 @@ function RenderReloader({
           initial={{ y: 0, opacity: 1 }}
           className="text-2xl leading-none lg:text-[88px] whitespace-nowrap"
         >
-          {reloader.full_name}
+          {reloader.full_name.replace(
+            /([\uE000-\uF8FF]|\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDDFF])/g,
+            ""
+          )}
         </motion.h2>
       </div>
 
